@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    h1= title
+    p #{desc}
+
+    ul.nav.nav-pills
+      li.active(role='presentation')
+        a(href='#') HubSpot Stats
+      li(role='presentation')
+        a(href='#') CE Availability
+      li(role='presentation')
+        a(href='#') Zendesk

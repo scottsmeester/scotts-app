@@ -5,10 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+// process.env.MONGOLAB_URI is Heroku variable.
+var mongConnect = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/salesTools');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var app = express();
+var app = express();  
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

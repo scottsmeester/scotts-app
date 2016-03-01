@@ -6,4 +6,21 @@ html
     link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+
+    nav.navbar.navbar-default
+      .container-fluid
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active(role='presentation')
+              a(href='/bulkloader') Bulk Loader Stats
+                //- span.sr-only (current)
+            li(role='presentation')
+              a(href='/ce_availability') CE Availability
+            li(role='presentation')
+              a(href='/zendesk') Zendesk
+      
+    .container
+      h1= title
+      p #{desc}
+
+      block content

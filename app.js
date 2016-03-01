@@ -4,6 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var hubSpotLists = require('./controllers/hubSpotList');
+
+var mongoose = require('mongoose');
+// process.env.MONGOLAB_URI is Heroku variable.
+var mongConnect = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/hubSpotLists');
+
+// Seed the database:
+require('./models/seedDb/seedDb.js');
 
 var mongoose = require('mongoose');
 // process.env.MONGOLAB_URI is Heroku variable.
@@ -19,7 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

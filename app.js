@@ -13,10 +13,6 @@ var mongConnect = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localh
 // Seed the database:
 require('./models/seedDb/seedDb.js');
 
-var mongoose = require('mongoose');
-// process.env.MONGOLAB_URI is Heroku variable.
-var mongConnect = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/salesTools');
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 

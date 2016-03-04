@@ -13,9 +13,6 @@ var mongConnect = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localh
 // Seed the database:
 require('./models/seedDb/seedDb.js');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();  
 
 // view engine setup
@@ -30,8 +27,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// DEFINING ROUTES
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var api = require('./routes/api');
+
 app.use('/', routes);
 app.use('/users', users);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

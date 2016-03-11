@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var hubSpotLists = require('./controllers/hubSpotList');
+// var hubSpotLists = require('./controllers/hubSpotList');
 
 var mongoose = require('mongoose');
 // process.env.MONGOLAB_URI is Heroku variable.

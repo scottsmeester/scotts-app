@@ -1,14 +1,11 @@
 extends layout
 
 block content
-  button.btn.btn-default(type='submit') Get Current Counts
+  button.btn.btn-default(type='submit' ng-click="getHubSpotLists") Get Current Counts
   table.table.table-striped.table-condensed.top-buffer
     tr
       th Bulk Loader List
       th List Count
-    tr
-      td In Process
-      td 20
-    tr
-      td Completed
-      td 12  
+    tr(ng-repeat="hubSpotList in hubSpotLists")
+      td {{hubSpotList.listName}}
+      td {{hubSpotList.lastCount}}
